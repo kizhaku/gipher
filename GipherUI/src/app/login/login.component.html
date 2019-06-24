@@ -1,0 +1,15 @@
+<label class="error-message">{{ submitMessage }}</label>
+
+<div class="login-form-container">
+  <form [formGroup]="loginForm" class="loginForm" (ngSubmit)="loginSubmit(loginForm)">
+    <mat-form-field>
+      <input matInput placeholder="Enter Username" formControlName="userId" class="username">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput type="password" placeholder="Password" formControlName="userPassword" class="password">
+    </mat-form-field>
+
+    <button mat-raised-button>Submit</button>
+  </form>
+</div>

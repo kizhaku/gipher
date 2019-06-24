@@ -1,0 +1,11 @@
+.login-form-container {
+  width:30vw;
+  margin:10vh auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.loginForm {
+    display: flex;
+    flex-direction: column;
+}
