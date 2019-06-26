@@ -21,7 +21,6 @@ export class GiphViewComponent implements OnInit {
   ngOnInit() {
     let resp = this.giphService.fetchNotesFromServer().subscribe(res => {
       this.giphs = res['data'];
-      console.log(this.giphs);
     });
   }
 

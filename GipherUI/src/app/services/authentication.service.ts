@@ -37,4 +37,8 @@ export class AuthenticationService {
      )
     .toPromise();
    }
+
+   logout() {
+     localStorage.removeItem('bearerToken');
+   }
 }

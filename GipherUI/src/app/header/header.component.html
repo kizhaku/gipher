@@ -1,3 +1,5 @@
 <mat-toolbar color="primary">
     <span>Gipher</span>
+    <span class="fill-space"></span>
+    <span class="logout" *ngIf="isLoggedIn"  (click)="logoutUser()">Logout</span>
 </mat-toolbar>

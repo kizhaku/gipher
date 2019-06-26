@@ -1,0 +1,29 @@
+<div class="login-form-container">
+  <div>
+    <h3>Registration Form</h3>
+  </div>
+  <label class="error-message">{{ submitMessage }}</label>
+  <form [formGroup]="registrationForm" class="loginForm" (ngSubmit)="register(registrationForm)">
+    <mat-form-field>
+      <input matInput placeholder="Username" formControlName="userId" class="username">
+      <mat-error *ngIf="registrationForm.get('userId')?.touched && registrationForm.get('userId')?.hasError('required')">Username is required</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput type="text" placeholder="First name" formControlName="firstName" class="firstName">
+      <mat-error *ngIf="registrationForm.get('firstName')?.touched && registrationForm.get('firstName')?.hasError('required')">First name is required</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput type="text" placeholder="Last name" formControlName="lastName" class="lastName">
+      <mat-error *ngIf="registrationForm.get('lastName')?.touched && registrationForm.get('lastName')?.hasError('required')">Last name is required</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput type="password" placeholder="Password" formControlName="userPassword" class="password">
+      <mat-error *ngIf="registrationForm.get('userPassword')?.touched && registrationForm.get('userPassword')?.hasError('required')">Password is required</mat-error>
+    </mat-form-field>
+
+    <button mat-raised-button>Submit</button>
+  </form>
+</div>

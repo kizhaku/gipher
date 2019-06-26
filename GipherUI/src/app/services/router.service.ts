@@ -16,4 +16,8 @@ export class RouterService {
   routeToLogin() {
     this.route.navigate(['login']);
   }
+
+  routeToRegistration() {
+    this.route.navigate(['register']);
+  }
 }

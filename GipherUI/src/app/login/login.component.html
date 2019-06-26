@@ -1,15 +1,19 @@
-<label class="error-message">{{ submitMessage }}</label>
-
 <div class="login-form-container">
+  <label class="error-message">{{ submitMessage }}</label>
   <form [formGroup]="loginForm" class="loginForm" (ngSubmit)="loginSubmit(loginForm)">
     <mat-form-field>
-      <input matInput placeholder="Enter Username" formControlName="userId" class="username">
+      <input matInput placeholder="Username" formControlName="userId" class="username" required>
+      <mat-error *ngIf="loginForm.get('userId')?.touched && loginForm.get('userId')?.hasError('required')">Username is required</mat-error>
     </mat-form-field>
 
     <mat-form-field>
-      <input matInput type="password" placeholder="Password" formControlName="userPassword" class="password">
+      <input matInput type="password" placeholder="Password" formControlName="userPassword" class="password" required>
+      <mat-error *ngIf="loginForm.get('userPassword')?.touched && loginForm.get('userPassword')?.hasError('required')">Password is required</mat-error>
     </mat-form-field>
 
     <button mat-raised-button>Submit</button>
   </form>
+  <div class="gotoRegister"> 
+    <p>New to Gipher? <a (click)="gotoRegistration()">Join now</a></p>
+  </div>
 </div>

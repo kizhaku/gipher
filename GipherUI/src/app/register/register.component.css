@@ -10,15 +10,6 @@
     flex-direction: column;
 }
 
-.gotoRegister {
-  text-align: center;
-}
-
-.gotoRegister a {
-  cursor: pointer;
-  color: #007bff;
-}
-
 .error-message {
   color: red;
 }

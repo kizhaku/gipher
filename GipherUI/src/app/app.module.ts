@@ -8,9 +8,9 @@ import { Routes, RouterModule } from '@angular/router';
 import { HeaderComponent } from './header/header.component';
 import {MatCardModule} from '@angular/material/card';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatButtonModule, MatCheckboxModule, MatInputModule, MatFormFieldModule} from '@angular/material';
+import {MatButtonModule, MatCheckboxModule, MatInputModule, MatFormFieldModule, MatIconModule} from '@angular/material';
 import {MatMenuModule} from '@angular/material/menu';
-import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatToolbarModule, MatToolbarRow} from '@angular/material/toolbar';
 import { GiphViewComponent } from './giph-view/giph-view.component';
 import { GiphComponent } from './giph/giph.component';
 import { GiphService } from './services/giph.service';
@@ -20,6 +20,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthenticationService } from './services/authentication.service';
 import { RouterService } from './services/router.service';
 import { CanActivateRouteGuard } from './can-activate-route.guard';
+import { RegisterComponent } from './register/register.component';
+import { UserService } from './services/user.service';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,8 @@ import { CanActivateRouteGuard } from './can-activate-route.guard';
     HeaderComponent,
     GiphViewComponent,
     GiphComponent,
-    LoginComponent
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -40,13 +43,15 @@ import { CanActivateRouteGuard } from './can-activate-route.guard';
     MatInputModule,
     FormsModule,
     MatFormFieldModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatIconModule
   ],
   providers: [
     GiphService,
     AuthenticationService,
     RouterService,
-    CanActivateRouteGuard
+    CanActivateRouteGuard,
+    UserService
   ],
   bootstrap: [AppComponent]
 })
