@@ -1,0 +1,6 @@
+.search-form {
+  width:95vw;
+  margin:10vh auto;
+  display: flex;
+  flex-direction: column;
+}

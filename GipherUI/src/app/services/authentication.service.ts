@@ -40,5 +40,14 @@ export class AuthenticationService {
 
    logout() {
      localStorage.removeItem('bearerToken');
+     localStorage.removeItem('username');
    }
+
+  setUserName(userName) {
+    localStorage.setItem('username', userName);
+  }
+
+  getUserName() {
+    return localStorage.getItem("username");
+  }
 }

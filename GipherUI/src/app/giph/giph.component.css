@@ -7,10 +7,14 @@
   width: 230px;
 }
 
-mat-card.-header .mat-card-title {
+mat-card.-header{
   font-size: 1em;
 }
 
 .mat-card {
   background-color: rgba(0,0,0,.05);
+}
+
+.bookmarkIcon {
+  cursor: pointer;
 }

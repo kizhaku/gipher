@@ -20,4 +20,8 @@ export class RouterService {
   routeToRegistration() {
     this.route.navigate(['register']);
   }
+
+  routeToSearch(searchTerm) {
+    this.route.navigate(['home/search', searchTerm]);
+  }
 }

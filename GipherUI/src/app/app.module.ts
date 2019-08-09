@@ -8,7 +8,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { HeaderComponent } from './header/header.component';
 import {MatCardModule} from '@angular/material/card';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatButtonModule, MatCheckboxModule, MatInputModule, MatFormFieldModule, MatIconModule} from '@angular/material';
+import {MatButtonModule, MatCheckboxModule, MatInputModule, MatFormFieldModule, MatIconModule, MatTabsModule} from '@angular/material';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatToolbarModule, MatToolbarRow} from '@angular/material/toolbar';
 import { GiphViewComponent } from './giph-view/giph-view.component';
@@ -22,6 +22,8 @@ import { RouterService } from './services/router.service';
 import { CanActivateRouteGuard } from './can-activate-route.guard';
 import { RegisterComponent } from './register/register.component';
 import { UserService } from './services/user.service';
+import { GiphSearchComponent } from './giph-search/giph-search.component';
+import { GiphBookmarksComponent } from './giph-bookmarks/giph-bookmarks.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,9 @@ import { UserService } from './services/user.service';
     GiphViewComponent,
     GiphComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    GiphSearchComponent,
+    GiphBookmarksComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +48,8 @@ import { UserService } from './services/user.service';
     FormsModule,
     MatFormFieldModule,
     ReactiveFormsModule,
-    MatIconModule
+    MatIconModule,
+    MatTabsModule
   ],
   providers: [
     GiphService,

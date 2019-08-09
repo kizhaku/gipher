@@ -16,8 +16,4 @@ export class UserService {
       })
     });
   }
-
-  setUserName(userName) {
-    localStorage.setItem('username', userName);
-  }
 }

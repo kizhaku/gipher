@@ -15,7 +15,7 @@ export class LoginComponent {
     loginForm: FormGroup;
     submitMessage: String;
 
-    constructor(public formBuilder: FormBuilder, private authService: AuthenticationService, private router: RouterService,
+    constructor(public formBuilder: FormBuilder, private authService: AuthenticationService, private routerService: RouterService,
         private userService: UserService) {
       this.loginForm = this.formBuilder.group({
         userId:['', [Validators.required]],
@@ -27,7 +27,8 @@ export class LoginComponent {
       if(this.validateForm(loginForm.value)) {
         this.authService.authenticateUser(loginForm.value).subscribe(res => {
           this.authService.setBearerToken(res['token']);
-          this.router.routeToHome();
+          this.authService.setUserName(loginForm.value.userId);
+          this.routerService.routeToHome();
         },
         error => {
           if (error.status === 401) {
@@ -53,6 +54,6 @@ export class LoginComponent {
     }
 
     gotoRegistration() {
-      this.router.routeToRegistration();
+      this.routerService.routeToRegistration();
     }
 }

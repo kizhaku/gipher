@@ -1,1 +1,14 @@
+<div class="search-form">
+  <label class="error-message">{{ submitMessage }}</label>
+  <form [formGroup]="searchForm" class="searchForm" (ngSubmit)="searchSubmit(searchForm)">
+    <div class="input-group mb-3">
+      <input type="text" placeholder="Search" class="form-control" placeholder="" aria-label="" aria-describedby="basic-addon1"
+        formControlName="searchTerm">
+      <div class="input-group-append">
+        <button class="btn btn-outline-secondary" >Search</button>
+      </div>
+    </div>
+  </form>
+</div>
+
 <router-outlet></router-outlet>

@@ -1,8 +1,12 @@
 <div class="giphCards">
   <mat-card class="example-card">
     <mat-card-header class="cardHeader">
-      <mat-card-title>{{giph.title}}</mat-card-title>
+      <mat-card-title>{{giph.title}}</mat-card-title> 
+      <span (click)="bookmarkGif(giph.id)">
+          <mat-icon class="bookmarkIcon" aria-hidden="true" svgIcon="bookmark" aria-label="Bookmark"></mat-icon>
+      </span> 
     </mat-card-header>
+    
     <mat-card-content>
       <p>        
         <img src="{{giph.images.fixed_width_downsampled.url}}" width="200px">
