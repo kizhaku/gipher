@@ -12,5 +12,6 @@ import com.stackroute.giphermanager.model.GiphBookmark;
 public interface GiphBookmarkRepository extends MongoRepository<GiphBookmark, String>{
 	
 	public List<GiphBookmark> findByuserName(String userName);
+	public GiphBookmark findByUserNameAndGifId(String userName, String gifId);
 
 }

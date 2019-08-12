@@ -7,6 +7,7 @@ import { CanActivateRouteGuard } from './can-activate-route.guard';
 import { RegisterComponent } from './register/register.component';
 import { GiphSearchComponent } from './giph-search/giph-search.component';
 import { GiphBookmarksComponent } from './giph-bookmarks/giph-bookmarks.component';
+import { GiphRecommendedComponent } from './giph-recommended/giph-recommended.component';
 
 const routes: Routes = [
   {
@@ -19,6 +20,10 @@ const routes: Routes = [
   },
   {
     path: 'bookmarks', component: GiphBookmarksComponent,
+    canActivate: [CanActivateRouteGuard]
+  },
+  {
+    path: 'recommended', component: GiphRecommendedComponent,
     canActivate: [CanActivateRouteGuard]
   },
   {path: 'login', component: LoginComponent},

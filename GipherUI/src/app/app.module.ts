@@ -24,6 +24,7 @@ import { RegisterComponent } from './register/register.component';
 import { UserService } from './services/user.service';
 import { GiphSearchComponent } from './giph-search/giph-search.component';
 import { GiphBookmarksComponent } from './giph-bookmarks/giph-bookmarks.component';
+import { GiphRecommendedComponent } from './giph-recommended/giph-recommended.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { GiphBookmarksComponent } from './giph-bookmarks/giph-bookmarks.componen
     LoginComponent,
     RegisterComponent,
     GiphSearchComponent,
-    GiphBookmarksComponent
+    GiphBookmarksComponent,
+    GiphRecommendedComponent
   ],
   imports: [
     BrowserModule,

@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.stackroute.giphermanager.exception.BookmarkExistException;
 import com.stackroute.giphermanager.model.BookmarkMessage;
 import com.stackroute.giphermanager.model.GiphBookmark;
 import com.stackroute.giphermanager.service.GiphBookmarkService;
@@ -37,15 +38,18 @@ public class GiphBookmarkController {
 	@PostMapping("/api/v1/bookmark")
 	public ResponseEntity<?> saveBookmark(@RequestBody GiphBookmark giphBookmark){	
 		
-		GiphBookmark savedBookmark = this.giphBookmarkService.saveBookmark(giphBookmark);
-		
-		BookmarkMessage mqMessage = new BookmarkMessage();
-		mqMessage.setGifId(giphBookmark.getGifId());
-		mqMessage.setUserName(giphBookmark.getUserName());
-		
-		this.rabbitSender.send(mqMessage);
-		
-		return new ResponseEntity<GiphBookmark>(savedBookmark, HttpStatus.CREATED);
+		try {
+			GiphBookmark savedBookmark = this.giphBookmarkService.saveBookmark(giphBookmark);
+			
+			BookmarkMessage mqMessage = new BookmarkMessage();
+			mqMessage.setGifId(giphBookmark.getGifId());
+			mqMessage.setUserName(giphBookmark.getUserName());		
+			this.rabbitSender.send(mqMessage);
+			
+			return new ResponseEntity<GiphBookmark>(savedBookmark, HttpStatus.CREATED);
+		} catch(BookmarkExistException e) {
+			return new ResponseEntity<>(e.getMessage(), HttpStatus.CONFLICT);
+		}
 	}
 	
 	@GetMapping("/api/v1/bookmark/{username}")

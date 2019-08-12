@@ -1,11 +1,13 @@
-<mat-toolbar color="primary">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
     <span class="linkPointer" routerLink="/home/view">Gipher</span>
 
-    <div fxLayout="row" fxShow="false" fxShow.gt-sm>
-            <button *ngIf="isLoggedIn" mat-button routerLink="/bookmarks">Bookmarks</button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a *ngIf="isLoggedIn" routerLink="/bookmarks" class="nav-item nav-link" href="#">Bookmarks</a>
+          <a *ngIf="isLoggedIn" routerLink="/recommended" class="nav-item nav-link" href="#">Recommended</a>
+        </div>
+        <span class="fill-space"></span>
+        <button *ngIf="isLoggedIn" (click)="logoutUser()" class="btn btn-outline-success my-2 my-sm-0">Logout</button>
     </div>
-
-    <span class="fill-space"></span>
-    <span class="linkPointer" *ngIf="isLoggedIn" (click)="logoutUser()">Logout</span>
-</mat-toolbar>
+</nav>
 

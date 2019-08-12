@@ -6,11 +6,11 @@ import { AuthenticationService } from '../services/authentication.service';
 import { GiphBookmark } from '../models/giphBookmark';
 
 @Component({
-  selector: 'app-giph-bookmarks',
-  templateUrl: './giph-bookmarks.component.html',
-  styleUrls: ['./giph-bookmarks.component.css']
+  selector: 'app-giph-recommended',
+  templateUrl: './giph-recommended.component.html',
+  styleUrls: ['./giph-recommended.component.css']
 })
-export class GiphBookmarksComponent implements OnInit {
+export class GiphRecommendedComponent implements OnInit {
 
   errorMessage: String;
   giphs: Array<Giph>;
@@ -18,13 +18,13 @@ export class GiphBookmarksComponent implements OnInit {
   searchTerm: String;
   userName: String;
   gifIds: Array<String>;
-  isBookmark: true;
+  isBookmark:false;
 
   constructor(private giphService: GiphService, private activatedRoute: ActivatedRoute, authService: AuthenticationService) {
     this.giph = new Giph();
     this.giphs = [];
     this.userName = authService.getUserName();
-    this.giphService.fetchBookmarkedGiphs(this.userName).subscribe(data => {
+    this.giphService.fetchRecommendedGiphs().subscribe(data => {
       this.gifIds = data.map(item => {
         return item.gifId;
       })

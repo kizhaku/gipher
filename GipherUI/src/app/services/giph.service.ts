@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { GiphBookmark } from "../models/giphBookmark";
+import { GiphRecommended } from "../models/giphRecommended";
 
 @Injectable()
 export class GiphService {
@@ -35,6 +36,10 @@ export class GiphService {
 
   fetchGiphsById(gifIds: String) {
     return this.httpClient.get('http://api.giphy.com/v1/gifs?limit=15&rating=PG&lang=en&api_key='+ this.apiKey + '&ids='+ gifIds)
+  }
+
+  fetchRecommendedGiphs() {
+    return this.httpClient.get<Array<GiphRecommended>>('http://localhost:9200/gipherrecommender/api/v1/giphs');
   }
 
 }
