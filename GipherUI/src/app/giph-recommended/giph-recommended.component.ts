@@ -18,11 +18,12 @@ export class GiphRecommendedComponent implements OnInit {
   searchTerm: String;
   userName: String;
   gifIds: Array<String>;
-  isBookmark:false;
+  showBookmark: Boolean;
 
   constructor(private giphService: GiphService, private activatedRoute: ActivatedRoute, authService: AuthenticationService) {
     this.giph = new Giph();
     this.giphs = [];
+    this.showBookmark = true;
     this.userName = authService.getUserName();
     this.giphService.fetchRecommendedGiphs().subscribe(data => {
       this.gifIds = data.map(item => {

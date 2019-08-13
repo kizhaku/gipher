@@ -12,10 +12,12 @@ export class GiphViewComponent implements OnInit {
   errorMessage: String;
   giphs: Array<Giph>;
   giph: Giph;
+  showBookmark: Boolean;
 
   constructor(private giphService: GiphService) {
     this.giph = new Giph();
     this.giphs = [];
+    this.showBookmark = true;
   }
 
   ngOnInit() {

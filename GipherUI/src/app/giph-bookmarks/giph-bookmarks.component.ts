@@ -18,11 +18,12 @@ export class GiphBookmarksComponent implements OnInit {
   searchTerm: String;
   userName: String;
   gifIds: Array<String>;
-  isBookmark: true;
+  showBookmark: Boolean;
 
   constructor(private giphService: GiphService, private activatedRoute: ActivatedRoute, authService: AuthenticationService) {
     this.giph = new Giph();
     this.giphs = [];
+    this.showBookmark = false;
     this.userName = authService.getUserName();
     this.giphService.fetchBookmarkedGiphs(this.userName).subscribe(data => {
       this.gifIds = data.map(item => {

@@ -12,11 +12,11 @@ export class GiphService {
   }
 
   fetchGiphs() {
-    return this.httpClient.get('http://api.giphy.com/v1/gifs/trending?limit=15&rating=PG&lang=en&api_key='+ this.apiKey)
+    return this.httpClient.get('http://api.giphy.com/v1/gifs/trending?limit=20&rating=PG&lang=en&api_key='+ this.apiKey)
   }
 
   searchGiphs(searchTerm: String) {
-    return this.httpClient.get('http://api.giphy.com/v1/gifs/search?limit=15&rating=PG&lang=en&api_key='+ this.apiKey + '&q='+ searchTerm)
+    return this.httpClient.get('http://api.giphy.com/v1/gifs/search?limit=20&rating=PG&lang=en&api_key='+ this.apiKey + '&q='+ searchTerm)
   }
 
   bookMarkGiph(gifId: String, userName: String) {
@@ -35,7 +35,7 @@ export class GiphService {
   }
 
   fetchGiphsById(gifIds: String) {
-    return this.httpClient.get('http://api.giphy.com/v1/gifs?limit=15&rating=PG&lang=en&api_key='+ this.apiKey + '&ids='+ gifIds)
+    return this.httpClient.get('http://api.giphy.com/v1/gifs?limit=20&rating=PG&lang=en&api_key='+ this.apiKey + '&ids='+ gifIds)
   }
 
   fetchRecommendedGiphs() {

@@ -1,6 +1,6 @@
-<div class="container-fluid">
-	<h3 style="color:red;font-size:1em;">{{errorMessage}}</h3>
+<div class="container-fluid giph-container">
 	<div class="row">
-			<app-giph [giph]="giph" *ngFor="let giph of giphs"></app-giph>
+			<h3 style="color:red;font-size:1em;">{{errorMessage}}</h3>
+			<app-giph [showBookmark]="showBookmark" [giph]="giph" *ngFor="let giph of giphs"></app-giph>
 	</div>
 </div>

@@ -1,13 +1,19 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <span class="linkPointer" routerLink="/home/view">Gipher</span>
+ <!-- Header -->
+<header class="header">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" routerLink="/home/view" href="#">Gipher</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarGipher" aria-controls="navbarGipher" 
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
-          <a *ngIf="isLoggedIn" routerLink="/bookmarks" class="nav-item nav-link" href="#">Bookmarks</a>
-          <a *ngIf="isLoggedIn" routerLink="/recommended" class="nav-item nav-link" href="#">Recommended</a>
+        <div class="collapse navbar-collapse" id="navbarGipher">
+            <div class="navbar-nav">
+            <a *ngIf="isLoggedIn" routerLink="/bookmarks" class="nav-item nav-link" href="#">Bookmarks</a>
+            <a *ngIf="isLoggedIn" routerLink="/recommended" class="nav-item nav-link" href="#">Recommended</a>
+            </div>
+            <span class="fill-space"></span>
+            <button *ngIf="isLoggedIn" (click)="logoutUser()" class="btn btn-outline-success my-2 my-sm-0">Logout</button>
         </div>
-        <span class="fill-space"></span>
-        <button *ngIf="isLoggedIn" (click)="logoutUser()" class="btn btn-outline-success my-2 my-sm-0">Logout</button>
-    </div>
-</nav>
-
+    </nav>
+</header>

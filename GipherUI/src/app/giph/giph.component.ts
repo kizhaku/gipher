@@ -14,6 +14,8 @@ export class GiphComponent implements OnInit {
 
   @Input()
   giph: Giph;
+  @Input()
+  showBookmark: boolean;
 
   constructor(private matIconRegistry: MatIconRegistry, 
     private domSanitizer: DomSanitizer, 
