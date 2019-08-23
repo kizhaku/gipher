@@ -5,6 +5,9 @@
       <span *ngIf="showBookmark" (click)="bookmarkGif(giph.id)">
           <mat-icon class="bookmarkIcon" aria-hidden="true" svgIcon="bookmark" aria-label="Bookmark"></mat-icon>
       </span> 
+      <span *ngIf="showBookmark == false" (click)="deleteBookmark(giph.id)">
+        <mat-icon class="bookmarkIcon" aria-hidden="true" svgIcon="delete" aria-label="Delete"></mat-icon>
+    </span> 
     </mat-card-header>
     
     <mat-card-content>

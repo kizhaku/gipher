@@ -23,8 +23,13 @@ public class MessageConsumer {
 		Giph giph = new Giph();
 		giph.setGifId(message.getGifId());
 		
-		//Save to recommeded.
-		this.giphRecommenderService.addRecommendedGiph(giph);
+		//Save to recommended or remove.
+		if(message.getStatus().equalsIgnoreCase("add")) {
+			this.giphRecommenderService.addRecommendedGiph(giph);
+		}
+		else {
+			this.giphRecommenderService.removeRecommendedGiph(giph);
+		}
 	}
 
 }

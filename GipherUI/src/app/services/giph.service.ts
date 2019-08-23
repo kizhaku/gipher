@@ -2,13 +2,17 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { GiphBookmark } from "../models/giphBookmark";
 import { GiphRecommended } from "../models/giphRecommended";
+import { AuthenticationService } from "./authentication.service";
+import { map } from "rxjs/operators";
 
 @Injectable()
 export class GiphService {
   apiKey: String;
+  bearerToken: String;
 
-  constructor(private httpClient: HttpClient) {
+  constructor(private httpClient: HttpClient, private authService: AuthenticationService) {
     this.apiKey = "DVa67iQKqrw6hJFfW7VslcCCQ6dSAn3q";
+    this.bearerToken = this.authService.getBearerToken();
   }
 
   fetchGiphs() {
@@ -31,7 +35,9 @@ export class GiphService {
   }
 
   fetchBookmarkedGiphs(userName: String) {
-    return this.httpClient.get<Array<GiphBookmark>>('http://localhost:9100/giphermanager/api/v1/bookmark/'+ userName);
+    return this.httpClient.get<Array<GiphBookmark>>('http://localhost:9100/giphermanager/api/v1/bookmark/'+userName, {
+       headers: new HttpHeaders().set('Authorization', `Bearer ${this.bearerToken}`)
+     })
   }
 
   fetchGiphsById(gifIds: String) {
@@ -39,7 +45,15 @@ export class GiphService {
   }
 
   fetchRecommendedGiphs() {
-    return this.httpClient.get<Array<GiphRecommended>>('http://localhost:9200/gipherrecommender/api/v1/giphs');
+    return this.httpClient.get<Array<GiphRecommended>>('http://localhost:9200/gipherrecommender/api/v1/giphs', {
+      headers: new HttpHeaders().set('Authorization', `Bearer ${this.bearerToken}`)
+    });
+  }
+
+  deleteBookmark(userName: String, gifId: String) {
+    return this.httpClient.delete('http://localhost:9100/giphermanager/api/v1/bookmark/'+ gifId +'/'+ userName, {
+      headers: new HttpHeaders().set('Authorization', `Bearer ${this.bearerToken}`)
+    })
   }
 
 }

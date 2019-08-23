@@ -1,21 +1,37 @@
 package com.stackroute.giphermanager;
 
-import org.springframework.amqp.core.AmqpTemplate;
-import org.springframework.amqp.core.Binding;
-import org.springframework.amqp.core.BindingBuilder;
-import org.springframework.amqp.core.DirectExchange;
-import org.springframework.amqp.core.Queue;
-import org.springframework.amqp.rabbit.connection.ConnectionFactory;
-import org.springframework.amqp.rabbit.core.RabbitTemplate;
-import org.springframework.amqp.support.converter.Jackson2JsonMessageConverter;
-import org.springframework.amqp.support.converter.MessageConverter;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+
+import com.stackroute.giphermanager.jwtfilter.JwtFilter;
 
 @SpringBootApplication
 public class GipherManagerApplication {
+	
+	/* @Bean
+	public FilterRegistrationBean jwtFilter() {
+		FilterRegistrationBean registrationBean = new FilterRegistrationBean<>();
+		registrationBean.setFilter(new JwtFilter());
+		registrationBean.addUrlPatterns("/giphermanager/api/v1/*");
+	       
+	    return registrationBean;
+	} */
+	
+	@Bean
+    public WebMvcConfigurer corsConfigurer() {
+		return new WebMvcConfigurer() {
+			public void addCorsMappings(CorsRegistry registry) {
+				registry.addMapping("/giphermanager/api/v1/**")
+				.allowedOrigins("*")
+				.allowedMethods("*")
+				.allowedHeaders("*");
+			}
+		};
+    }
 
 	public static void main(String[] args) {
 		SpringApplication.run(GipherManagerApplication.class, args);

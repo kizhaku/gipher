@@ -22,7 +22,6 @@ public class GiphRecommenderServiceImpl implements GiphRecommenderService {
 	
 	@Override
 	public Giph addRecommendedGiph(Giph giph) {
-		
 		//Check if giph already exists. Update count if present.
 		try{
 			Giph existingGiph = getGiphById(giph.getGifId());
@@ -58,6 +57,27 @@ public class GiphRecommenderServiceImpl implements GiphRecommenderService {
 		}
 		
 		return giphs;
+	}
+
+	@Override
+	public boolean removeRecommendedGiph(Giph giph) {
+		try{
+			Giph existingGiph = getGiphById(giph.getGifId());
+			
+			if(existingGiph.getCount().intValue() == 1) {
+				giphRecommenderRepository.delete(giph);
+			}
+			else {
+				giph.setCount(existingGiph.getCount().intValue() - 1);
+				giphRecommenderRepository.save(giph);
+			}
+			
+			return true;
+			
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			return false;
+		}
 	}
 
 }

@@ -13,5 +13,6 @@ public interface GiphBookmarkRepository extends MongoRepository<GiphBookmark, St
 	
 	public List<GiphBookmark> findByuserName(String userName);
 	public GiphBookmark findByUserNameAndGifId(String userName, String gifId);
+	public Long deleteGiphBookmarkByUserNameAndGifId(String userName, String gifId);
 
 }

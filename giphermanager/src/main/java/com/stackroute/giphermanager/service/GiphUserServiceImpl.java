@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.stackroute.giphermanager.exception.BookmarkDoesNotExistException;
 import com.stackroute.giphermanager.exception.BookmarkExistException;
 import com.stackroute.giphermanager.model.GiphBookmark;
 import com.stackroute.giphermanager.repository.GiphBookmarkRepository;
@@ -22,14 +23,12 @@ public class GiphUserServiceImpl implements GiphBookmarkService {
 	@Override
 	public GiphBookmark saveBookmark(GiphBookmark giphBookmark) throws BookmarkExistException {
 		
-		if(!isBookmarkPresent(giphBookmark)) {
-			GiphBookmark savedBookmark = this.giphUserRepository.insert(giphBookmark);
+		if(!isBookmarkPresent(giphBookmark.getUserName(), giphBookmark.getGifId())) {
+			return this.giphUserRepository.insert(giphBookmark);
 		}
 		else {
 			throw new BookmarkExistException("Bookmark already exists");
 		}
-		
-		return giphBookmark;
 	}
 
 	@Override
@@ -39,15 +38,29 @@ public class GiphUserServiceImpl implements GiphBookmarkService {
 	}
 
 	@Override
-	public boolean isBookmarkPresent(GiphBookmark giphBookmark) {
+	public boolean isBookmarkPresent(String userName, String gifId) {
 		
-		GiphBookmark savedBookmark = this.giphUserRepository.findByUserNameAndGifId(giphBookmark.getUserName(), giphBookmark.getGifId());
+		GiphBookmark savedBookmark = this.giphUserRepository.findByUserNameAndGifId(userName, gifId);
 		
 		if(savedBookmark != null) {
 			return true;
 		}
 		
 		return false;
+	}
+
+	@Override
+	public boolean deleteBookmark(String userName, String gifId) throws BookmarkDoesNotExistException {
+		//Check bookmark exists.
+		if(isBookmarkPresent(userName, gifId)) {
+			giphUserRepository.deleteGiphBookmarkByUserNameAndGifId(userName, gifId);
+			
+			return true;
+		} 
+		else {
+			throw new BookmarkDoesNotExistException("Bookmark not found");
+		}
+
 	}
 
 }

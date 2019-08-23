@@ -19,11 +19,11 @@ export class GiphBookmarksComponent implements OnInit {
   userName: String;
   gifIds: Array<String>;
   showBookmark: Boolean;
+  errorDisplay: String;
 
   constructor(private giphService: GiphService, private activatedRoute: ActivatedRoute, authService: AuthenticationService) {
     this.giph = new Giph();
     this.giphs = [];
-    this.showBookmark = false;
     this.userName = authService.getUserName();
     this.giphService.fetchBookmarkedGiphs(this.userName).subscribe(data => {
       this.gifIds = data.map(item => {
@@ -39,6 +39,27 @@ export class GiphBookmarksComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.errorDisplay = "none";
+    this.showBookmark = false;
+  }
+
+  deleteBookmark(gifId: String) {
+    this.giphService.deleteBookmark(gifId, this.userName).subscribe(data => {
+      if(data['status'] === "success") {
+        //Remove gif from view.
+        let filteredGiphs = this.giphs.filter(x => {
+          if(x.id != gifId) {
+            return true;
+          }
+        });   
+        this.giphs = filteredGiphs;
+      }
+    },
+      error => {
+        this.errorMessage = error.error.message;
+        this.errorDisplay = "block";
+      }
+    );
   }
 
 }

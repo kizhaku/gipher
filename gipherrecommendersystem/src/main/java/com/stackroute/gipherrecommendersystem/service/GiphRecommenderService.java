@@ -13,4 +13,5 @@ public interface GiphRecommenderService {
 	public Giph addRecommendedGiph(Giph giph);
 	public Giph getGiphById(String id) throws GiphNotFoundException;
 	public List<Giph> getRecommendedGiphs() throws GiphNotFoundException;
+	public boolean removeRecommendedGiph(Giph giph);
 }

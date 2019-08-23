@@ -19,6 +19,9 @@ export class GiphRecommendedComponent implements OnInit {
   userName: String;
   gifIds: Array<String>;
   showBookmark: Boolean;
+  message: String;
+  messageDisplay: String;
+  errorDisplay: String;
 
   constructor(private giphService: GiphService, private activatedRoute: ActivatedRoute, authService: AuthenticationService) {
     this.giph = new Giph();
@@ -39,6 +42,23 @@ export class GiphRecommendedComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.messageDisplay = "none";
+    this.errorDisplay = "none";
+  }
+
+  bookmarkGif(gifId: String) {
+    this.messageDisplay = "none";
+    this.errorDisplay = "none";
+
+    this.giphService.bookMarkGiph(gifId, this.userName).subscribe(res => {
+      this.messageDisplay = "block";
+      this.message = "Bookmark added";
+    },
+      error => {
+        this.errorMessage = error.error.message;
+        this.errorDisplay = "block";
+      }
+    );
   }
 
 }

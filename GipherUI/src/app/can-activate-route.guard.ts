@@ -17,6 +17,7 @@ export class CanActivateRouteGuard implements CanActivate {
       return this.authService.isUserAuthenticated(this.authService.getBearerToken())
       .then(res => {
         if (res === "false") {
+          this.authService.logout();
           this.router.routeToLogin();
           return false;
         } else {
