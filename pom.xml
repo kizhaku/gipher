@@ -84,6 +84,7 @@
 		<module>giphermanager</module>
 		<module>accountmanager</module>
 		<module>eureka-naming-server</module>
+		<module>zuul-api-gateway-server</module>
 	</modules>
 
 </project>
