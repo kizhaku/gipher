@@ -14,20 +14,23 @@ import com.stackroute.gipherrecommendersystem.jwtfilter.JwtFilter;
 @EnableDiscoveryClient
 public class GipherRecommenderSystemApplication {
 	
-	/* @Bean
+	@Bean
 	public FilterRegistrationBean jwtFilter() {
 		FilterRegistrationBean registrationBean = new FilterRegistrationBean<>();
 		registrationBean.setFilter(new JwtFilter());
-		registrationBean.addUrlPatterns("/gipherrecommender/*");
+		registrationBean.addUrlPatterns("/gipherrecommender/api/v1/*");
 	       
 	    return registrationBean;
-	} */
+	}
 	
 	@Bean
     public WebMvcConfigurer corsConfigurer() {
 		return new WebMvcConfigurer() {
 			public void addCorsMappings(CorsRegistry registry) {
-				registry.addMapping("/gipherrecommender/**").allowedOrigins("*");
+				registry.addMapping("/gipherrecommender/api/v1/**")
+				.allowedOrigins("*")
+				.allowedMethods("*")
+				.allowedHeaders("*");
 			}
 		};
     }

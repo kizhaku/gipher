@@ -23,11 +23,11 @@ export class LoginComponent {
       });
     }
 
-    loginSubmit(loginForm: FormGroup) {
-      if(this.validateForm(loginForm.value)) {
-        this.authService.authenticateUser(loginForm.value).subscribe(res => {
+    loginSubmit() {
+      if(this.validateForm(this.loginForm.value)) {
+        this.authService.authenticateUser(this.loginForm.value).subscribe(res => {
           this.authService.setBearerToken(res['token']);
-          this.authService.setUserName(loginForm.value.userId);
+          this.authService.setUserName(this.loginForm.value.userId);
           this.routerService.routeToHome();
         },
         error => {

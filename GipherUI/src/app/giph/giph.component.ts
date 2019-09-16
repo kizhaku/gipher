@@ -23,11 +23,9 @@ export class GiphComponent{
   addBookmark = new EventEmitter<String>();
 
   constructor(private matIconRegistry: MatIconRegistry, 
-    private domSanitizer: DomSanitizer, 
-    private giphService: GiphService,
-    private authService: AuthenticationService) {
-    this.matIconRegistry.addSvgIcon('bookmark', this.domSanitizer.bypassSecurityTrustResourceUrl('../assets/baseline-bookmark-24px.svg'));
-    this.matIconRegistry.addSvgIcon('delete', this.domSanitizer.bypassSecurityTrustResourceUrl('../assets/baseline-delete-24px.svg'));
+    private domSanitizer: DomSanitizer) {
+    this.matIconRegistry.addSvgIcon('bookmark', this.domSanitizer.bypassSecurityTrustResourceUrl('../gipher/assets/baseline-bookmark-24px.svg'));
+    this.matIconRegistry.addSvgIcon('delete', this.domSanitizer.bypassSecurityTrustResourceUrl('../gipher/assets/baseline-delete-24px.svg'));
   }
 
   bookmarkGif(gifId: String) {

@@ -1,16 +1,20 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { map, catchError } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
 
 @Injectable()
 export class AuthenticationService {
+  apiGatewayURL: String = environment.apiGatewayURL;
+  apiLogin: String = environment.apiLogin;
+  apiAuthenticateToken: String = environment.apiAuthenticateToken;
 
   constructor(private httpClient: HttpClient) {
 
   }
 
   authenticateUser(data) {
-    return this.httpClient.post('http://localhost:8089/auth/api/v1/login/', data, {
+    return this.httpClient.post(`${this.apiGatewayURL}${this.apiLogin}`, data, {
       headers: new HttpHeaders({
         'Content-Type':  'application/json',
         'method': 'POST'
@@ -27,7 +31,7 @@ export class AuthenticationService {
   }
 
   isUserAuthenticated(token){
-    return this.httpClient.get('http://localhost:8089/auth/api/v1/isauthenticated', {
+    return this.httpClient.get(`${this.apiGatewayURL}${this.apiAuthenticateToken}`, {
        headers: new HttpHeaders().set('Authorization', `Bearer ${token}`)
      })
      .pipe(
