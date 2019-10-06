@@ -18,3 +18,13 @@ mat-card.-header{
 .bookmarkIcon {
   cursor: pointer;
 }
+
+.card-title{
+  margin-top: 4.4em;
+  font-weight: bold;
+}
+
+.card img {
+  width: 200px;
+  height: 200px;
+}

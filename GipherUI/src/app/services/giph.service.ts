@@ -34,7 +34,8 @@ export class GiphService {
     return this.httpClient.post(`${this.apiGatewayURL}${this.apiBookmark}`, data, {
       headers: new HttpHeaders({
         'Content-Type':  'application/json',
-        'method': 'POST'
+        'method': 'POST',
+        'Authorization': `Bearer ${this.bearerToken}`
       })
     });
   }
