@@ -9,8 +9,9 @@
 
         <div class="collapse navbar-collapse" id="navbarGipher">
             <div class="navbar-nav">
-            <a *ngIf="isLoggedIn" routerLink="/bookmarks" class="nav-item nav-link" href="#">Bookmarks</a>
-            <a *ngIf="isLoggedIn" routerLink="/recommended" class="nav-item nav-link" href="#">Recommended</a>
+            <a *ngIf="isLoggedIn" routerLink="/bookmarks" class="nav-bookmarks nav-item nav-link" href="#">Bookmarks</a>
+            <a *ngIf="isLoggedIn" routerLink="/recommended" class="nav-recommended nav-item nav-link recommended" href="#">Recommended</a>
+            
             </div>
             <span class="fill-space"></span>
             <button *ngIf="isLoggedIn" (click)="logoutUser()" class="btn btn-outline-success my-2 my-sm-0">Logout</button>

@@ -31,7 +31,7 @@ export class LoginComponent {
           this.routerService.routeToHome();
         },
         error => {
-          if (error.status === 401) {
+         if (error.status === 401) {
             this.submitMessage = 'Unauthorized';
           } else if (error.status === 404) {
             this.submitMessage = error.message;

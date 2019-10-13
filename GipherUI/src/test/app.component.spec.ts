@@ -1,36 +1,42 @@
 import { TestBed, async } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from 'src/app/app.component';
+import { HeaderComponent } from 'src/app/header/header.component';
+import { AuthenticationService } from 'src/app/services/authentication.service';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { RouterService } from 'src/app/services/router.service';
 
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
-        RouterTestingModule
+        RouterTestingModule,
+        HttpClientTestingModule
       ],
       declarations: [
-        AppComponent
+        AppComponent,
+        HeaderComponent
       ],
+      providers: [
+        AuthenticationService,
+        RouterService
+      ]
     }).compileComponents();
   }));
 
-  xit('should create the app', () => {
+  it('should create the app', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
+    
     expect(app).toBeTruthy();
   });
 
-  xit(`should have as title 'GipherUI'`, () => {
+  it(`should have as title 'GipherUI'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
+
     expect(app.title).toEqual('GipherUI');
   });
-
-  /* it('should render title in a h1 tag', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('Welcome to GipherUI!');
-  }); */
+  
 });
