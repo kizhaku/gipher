@@ -9,7 +9,7 @@ import { RouterService } from '../services/router.service';
 })
 export class DashboardComponent {
   searchTerm = new FormControl();
-  searchForm: FormGroup
+  searchForm: FormGroup;
 
   constructor(public formBuilder: FormBuilder, private routerService: RouterService) {
     this.searchForm = this.formBuilder.group({
@@ -17,9 +17,10 @@ export class DashboardComponent {
     })
   }
 
-  searchSubmit(searchForm: FormGroup) {
-    if(searchForm.value.searchTerm != "") {
-      this.routerService.routeToSearch(searchForm.value.searchTerm);
+  searchSubmit() {
+    if(this.searchForm.value.searchTerm != "") {
+      //console.log(this.searchForm.value.searchTerm);
+      this.routerService.routeToSearch(this.searchForm.value.searchTerm);
     }
   }
 }

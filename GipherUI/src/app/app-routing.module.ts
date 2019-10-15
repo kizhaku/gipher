@@ -9,7 +9,7 @@ import { GiphSearchComponent } from './giph-search/giph-search.component';
 import { GiphBookmarksComponent } from './giph-bookmarks/giph-bookmarks.component';
 import { GiphRecommendedComponent } from './giph-recommended/giph-recommended.component';
 
-const routes: Routes = [
+export const routes: Routes = [
   {
     path: 'home', component: DashboardComponent,
     canActivate: [CanActivateRouteGuard],

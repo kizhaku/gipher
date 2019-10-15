@@ -71,7 +71,7 @@ describe('LoginComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('it should handle incorrect login and password', fakeAsync(() => {
+  it('should handle incorrect login and password', fakeAsync(() => {
     errorMessage = testData.invalidAuth;
     fixture.detectChanges();
     spyValidateForm = spyOn(component, 'validateForm').and.returnValue(true);

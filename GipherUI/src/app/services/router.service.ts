@@ -22,6 +22,7 @@ export class RouterService {
   }
 
   routeToSearch(searchTerm) {
+    console.log(searchTerm);
     this.route.navigate(['home/search', searchTerm]);
   }
 }
