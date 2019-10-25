@@ -1,11 +1,13 @@
-import { browser, by, element } from 'protractor';
+import { browser, by, element, ElementFinder } from 'protractor';
 
 export class AppPage {
   navigateTo() {
     return browser.get('/');
   }
 
-  getParagraphText() {
-    return element(by.css('app-root h1')).getText();
+  // get header
+  getHeader(): ElementFinder {
+    return element(by.css('.navbar-brand'));
   }
+
 }

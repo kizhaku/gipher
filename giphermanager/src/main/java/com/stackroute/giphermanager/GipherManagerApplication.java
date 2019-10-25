@@ -15,6 +15,18 @@ import com.stackroute.giphermanager.jwtfilter.JwtFilter;
 public class GipherManagerApplication {
 	
 	@Bean
+    public WebMvcConfigurer corsConfigurer() {
+		return new WebMvcConfigurer() {
+			public void addCorsMappings(CorsRegistry registry) {
+				registry.addMapping("*")
+				.allowedOrigins("*")
+				.allowedMethods("*")
+				.allowedHeaders("*");
+			}
+		};
+    }
+	
+	@Bean
 	public FilterRegistrationBean jwtFilter() {
 		FilterRegistrationBean registrationBean = new FilterRegistrationBean<>();
 		registrationBean.setFilter(new JwtFilter());
@@ -22,18 +34,6 @@ public class GipherManagerApplication {
 	       
 	    return registrationBean;
 	}
-	
-	@Bean
-    public WebMvcConfigurer corsConfigurer() {
-		return new WebMvcConfigurer() {
-			public void addCorsMappings(CorsRegistry registry) {
-				registry.addMapping("/giphermanager/api/v1/bookmark/**")
-				.allowedOrigins("*")
-				.allowedMethods("*")
-				.allowedHeaders("*");
-			}
-		};
-    }
 
 	public static void main(String[] args) {
 		SpringApplication.run(GipherManagerApplication.class, args);

@@ -11,7 +11,7 @@
       <mat-error *ngIf="loginForm.get('userPassword')?.touched && loginForm.get('userPassword')?.hasError('required')">Password is required</mat-error>
     </mat-form-field>
 
-    <button mat-raised-button>Submit</button>
+    <button class="loginSubmit" mat-raised-button>Submit</button>
   </form>
   <div class="gotoRegister"> 
     <p>New to Gipher? <a (click)="gotoRegistration()">Join now</a></p>
