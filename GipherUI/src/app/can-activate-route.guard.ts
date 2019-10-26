@@ -23,6 +23,11 @@ export class CanActivateRouteGuard implements CanActivate {
         } else {
           return true;
         }
+      })
+      .catch(err => {
+        this.authService.logout();
+        this.router.routeToLogin();
+        return false;
       });
   }
 }

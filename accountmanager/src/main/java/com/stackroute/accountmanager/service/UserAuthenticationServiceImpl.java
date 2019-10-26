@@ -5,23 +5,23 @@ import org.springframework.stereotype.Service;
 
 import com.stackroute.accountmanager.exception.UserNotFoundException;
 import com.stackroute.accountmanager.model.User;
-import com.stackroute.accountmanager.repository.UserAutheticationRepository;
+import com.stackroute.accountmanager.repository.UserRepository;
 
 
 @Service
 public class UserAuthenticationServiceImpl implements UserAuthenticationService {
 
-	private UserAutheticationRepository userAutheticationRepository;
+	private UserRepository userRepository;
 	
 	@Autowired
-	public UserAuthenticationServiceImpl(UserAutheticationRepository userAutheticationRepository) {
-		this.userAutheticationRepository = userAutheticationRepository;
+	public UserAuthenticationServiceImpl(UserRepository userRepository) {
+		this.userRepository = userRepository;
 	}
 
     @Override
     public User findByUserIdAndPassword(String userId, String password) throws UserNotFoundException {
     	
-    	User user = this.userAutheticationRepository.findByUserIdAndUserPassword(userId, password);
+    	User user = this.userRepository.findByUserIdAndUserPassword(userId, password);
     	
     	if(user == null) {
     		throw new UserNotFoundException("User not found");

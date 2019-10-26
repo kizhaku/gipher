@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.stackroute.accountmanager.exception.UserNotFoundException;
 import com.stackroute.accountmanager.model.User;
 import com.stackroute.accountmanager.service.UserAuthenticationService;
 
@@ -50,6 +51,8 @@ public class UserAuthenticationController {
 	    		responseMap.clear();
 	    		responseMap.put("message", "User Successfully Logged In");
 	    		responseMap.put("token", jwtToken);
+	    		
+	    		return new ResponseEntity<>(responseMap, HttpStatus.OK);
     		} catch (Exception e) {
     			responseMap.clear();
     			responseMap.put("message", e.getMessage());
@@ -57,8 +60,6 @@ public class UserAuthenticationController {
     			
     			return new ResponseEntity<>(responseMap, HttpStatus.UNAUTHORIZED);
     		}
-    		
-    		return new ResponseEntity<>(responseMap, HttpStatus.OK);
     }
 
     // Generate JWT token
@@ -86,7 +87,7 @@ public class UserAuthenticationController {
 		authResponse.put("isAuthenticated", "false");
 		
 		if(authHeader == null || !authHeader.startsWith("Bearer")) {
-			return new ResponseEntity<>(authResponse, HttpStatus.OK);
+			return new ResponseEntity<>(authResponse, HttpStatus.UNAUTHORIZED);
 		}
 		
 		String token = authHeader.substring(7);
@@ -95,9 +96,8 @@ public class UserAuthenticationController {
 			authResponse.put("isAuthenticated", "true");
 			return new ResponseEntity<>(authResponse, HttpStatus.OK);
 		} catch(Exception e) {
-			e.printStackTrace();
 			authResponse.put("isAuthenticated", "false");
-			return new ResponseEntity<>(authResponse, HttpStatus.OK);
+			return new ResponseEntity<>(authResponse, HttpStatus.UNAUTHORIZED);
 		}	
 
 	}
