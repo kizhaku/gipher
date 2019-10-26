@@ -31,4 +31,13 @@ describe('Dashboard', () => {
     });
   });
 
+  it('should redirect to login if not autheticated', () => {
+    dashBoardPage.clickLogout().then(() => {
+      //Try to access dashboard after logout.
+      dashBoardPage.navigateToDashboard().then(() => {
+        expect(dashBoardPage.getCurrentURL()).toContain('/login', 'should take user to login.')
+      });
+    });
+  });
+
 })

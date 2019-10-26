@@ -27,6 +27,10 @@ export class LoginPage {
     return element(By.css('.btn-logout'));
   }
 
+  getRegisterLink(): ElementFinder {
+    return element(By.css('.register'))
+  }
+
   getErrorMessage(): ElementFinder {
     return element(By.css('.error-message'));
   }
@@ -62,8 +66,12 @@ export class LoginPage {
     return this.getSubmitButton().submit();
   }
 
-  clickLogout(): promise.Promise<void>{
+  clickLogout(): promise.Promise<void> {
     return this.getLogoutButton().click();
-   }
+  }
+
+  clickRegisterLink(): promise.Promise<void> {
+    return this.getRegisterLink().click();
+  }
 
 }

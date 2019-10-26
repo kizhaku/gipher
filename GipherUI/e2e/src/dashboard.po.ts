@@ -4,7 +4,7 @@ import { By} from "selenium-webdriver";
 
 export class DashBoardPage {
 
-  navigateToLogin() {
+  navigateToDashboard() {
     return browser.get('/home/view');
   }
 
@@ -36,11 +36,19 @@ export class DashBoardPage {
     return this.getSearchButton().submit();
   }
 
+  getLogoutButton(): ElementFinder {
+    return element(By.css('.btn-logout'));
+  }
+
   clickBookmarks(): promise.Promise<void> {
     return this.getBookmarkLink().click();
   }
 
   clickRecommended(): promise.Promise<void> {
     return this.getRecommendedLink().click();
+  }
+
+  clickLogout(): promise.Promise<void>{
+    return this.getLogoutButton().click();
   }
 }

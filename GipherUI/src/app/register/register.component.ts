@@ -36,7 +36,7 @@ export class RegisterComponent {
         },
         error => {
           if (error.status === 409) {
-            this.submitMessage = 'User id already taken. Please try another one.';
+            this.submitMessage = 'Username is already taken. Please try another one.';
           } else {
             this.submitMessage = error.message;
           }

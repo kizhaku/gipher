@@ -43,6 +43,12 @@ it('should be able to logout user', () => {
   });
 });
 
+it('should navigate to register page', () => {
+  page.clickRegisterLink().then(() => {
+    expect(page.getCurrentURL()).toContain('/register')
+  });
+});
+
 it('should login to application with correct credentials', () => {
   page.navigateToLogin();
   page.addLoginValues('admin', 'pass');
