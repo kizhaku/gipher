@@ -1,6 +1,6 @@
 <div class="login-form-container">
   <label class="error-message">{{ submitMessage }}</label>
-  <form [formGroup]="loginForm" class="loginForm" (ngSubmit)="loginSubmit(loginForm)">
+  <form [formGroup]="loginForm" class="loginForm" (ngSubmit)="loginSubmit()">
     <mat-form-field>
       <input matInput placeholder="Username" formControlName="userId" class="username" required>
       <mat-error *ngIf="loginForm.get('userId')?.touched && loginForm.get('userId')?.hasError('required')">Username is required</mat-error>
