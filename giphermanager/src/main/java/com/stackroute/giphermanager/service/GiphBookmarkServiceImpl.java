@@ -11,12 +11,12 @@ import com.stackroute.giphermanager.model.GiphBookmark;
 import com.stackroute.giphermanager.repository.GiphBookmarkRepository;
 
 @Service
-public class GiphUserServiceImpl implements GiphBookmarkService {
+public class GiphBookmarkServiceImpl implements GiphBookmarkService {
 	
 	GiphBookmarkRepository giphUserRepository;
 	
 	@Autowired
-	public GiphUserServiceImpl(GiphBookmarkRepository giphUserRepository) {
+	public GiphBookmarkServiceImpl(GiphBookmarkRepository giphUserRepository) {
 		this.giphUserRepository = giphUserRepository;
 	}
 

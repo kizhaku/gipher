@@ -74,7 +74,7 @@ public class GiphRecommenderServiceImpl implements GiphRecommenderService {
 			
 			return true;
 			
-		} catch (Exception e) {
+		} catch (GiphNotFoundException e) {
 			System.out.println(e.getMessage());
 			return false;
 		}

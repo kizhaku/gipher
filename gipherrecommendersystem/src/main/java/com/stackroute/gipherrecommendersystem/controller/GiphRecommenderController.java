@@ -26,7 +26,7 @@ public class GiphRecommenderController {
 	}
 	
 	@GetMapping("/api/v1/giphs")
-	public ResponseEntity<?> getBookmarksByUsername(){	
+	public ResponseEntity<?> getRecommendedGiphs(){	
 		
 		try {
 			List<Giph> giphs = this.giphRecommenderService.getRecommendedGiphs();

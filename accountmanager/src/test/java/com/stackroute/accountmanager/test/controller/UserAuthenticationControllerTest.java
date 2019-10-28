@@ -1,7 +1,5 @@
 package com.stackroute.accountmanager.test.controller;
 
-import static org.mockito.Mockito.doThrow;
-
 import java.util.Date;
 
 import org.junit.Before;
@@ -40,7 +38,7 @@ public class UserAuthenticationControllerTest {
 	@InjectMocks
 	private UserAuthenticationController userAuthenticationController;
 	@MockBean
-	private UserController UserController;
+	private UserController userController;
 	
 	@Before
 	public void setUp() {

@@ -51,7 +51,7 @@ public class GiphBookmarkController {
 			this.rabbitSender.send(mqMessage);
 			
 			return new ResponseEntity<GiphBookmark>(savedBookmark, HttpStatus.CREATED);
-		} catch(BookmarkExistException e) {
+		} catch(Exception e) {
 			response.put("status", "failed");
 			response.put("message", e.getMessage());
 			return new ResponseEntity<>(response, HttpStatus.CONFLICT);
