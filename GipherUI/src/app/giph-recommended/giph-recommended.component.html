@@ -1,17 +1,17 @@
 <div class="container-fluid giph-container">
-		<div class="alert alert-danger alert-dismissible fade show" [ngStyle]="{display: errorDisplay}" role="alert">
+		<div class="alert alert-danger fade show" [ngStyle]="{display: errorDisplay}" role="alert">
 				{{errorMessage}}
-				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+				<button type="button" class="close" aria-label="Close" (click)="hideError()">
 						<span aria-hidden="true">&times;</span>
 				</button>
 		</div>
-		<div class="alert alert-success alert-dismissible fade show" [ngStyle]="{display: messageDisplay}" role="alert">
+		<div class="alert alert-success fade show" [ngStyle]="{display: messageDisplay}" role="alert">
 				{{message}}
 				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
 						<span aria-hidden="true">&times;</span>
 				</button>
 		</div>
-	<div class="row">
+	<div class="row row-giphs">
 			<app-giph [showBookmark]="showBookmark"
 			(addBookmark)="bookmarkGif($event)"
 			[giph]="giph" *ngFor="let giph of giphs"></app-giph>

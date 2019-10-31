@@ -17,7 +17,7 @@ export class GiphService {
   bearerToken: String;
 
   constructor(private httpClient: HttpClient, private authService: AuthenticationService) {
-    this.bearerToken = this.authService.getBearerToken();
+    
   }
 
   fetchGiphs() {
@@ -30,6 +30,7 @@ export class GiphService {
 
   bookMarkGiph(gifId: String, userName: String) {
     var data = {gifId: gifId, userName: userName};
+    this.bearerToken = this.authService.getBearerToken();
     
     return this.httpClient.post(`${this.apiGatewayURL}${this.apiBookmark}`, data, {
       headers: new HttpHeaders({
@@ -41,6 +42,7 @@ export class GiphService {
   }
 
   fetchBookmarkedGiphs(userName: String) {
+    this.bearerToken = this.authService.getBearerToken();
     return this.httpClient.get<Array<GiphBookmark>>(`${this.apiGatewayURL}${this.apiBookmark}${userName}`, {
        headers: new HttpHeaders().set('Authorization', `Bearer ${this.bearerToken}`)
      })
@@ -51,12 +53,14 @@ export class GiphService {
   }
 
   fetchRecommendedGiphs() {
+    this.bearerToken = this.authService.getBearerToken();
     return this.httpClient.get<Array<GiphRecommended>>(`${this.apiGatewayURL}${this.apiRecommended}`, {
       headers: new HttpHeaders().set('Authorization', `Bearer ${this.bearerToken}`)
     });
   }
 
   deleteBookmark(userName: String, gifId: String) {
+    this.bearerToken = this.authService.getBearerToken();
     return this.httpClient.delete(`${this.apiGatewayURL}${this.apiBookmark}${gifId}/${userName}`, {
       headers: new HttpHeaders().set('Authorization', `Bearer ${this.bearerToken}`)
     })

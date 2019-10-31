@@ -54,4 +54,12 @@ export class GiphSearchComponent implements OnInit {
       }
     );
   }
+
+  hideError() {
+    this.errorDisplay = "none";
+  }
+
+  hideMessage() {
+    this.messageDisplay = "none";
+  }
 }

@@ -5,6 +5,7 @@
 	<artifactId>accountmanager</artifactId>
 	<name>accountmanager</name>
 	<description>Boilerplate for accountmanager</description>
+	<packaging>jar</packaging>
 
 	<properties>
 		<java.version>1.8</java.version>
@@ -12,7 +13,7 @@
 	<parent>
 		<groupId>com.stackroute</groupId>
 		<artifactId>gipher</artifactId>   
-	       	<version>1.0</version>
+	    <version>1.0</version>
 	</parent>
 	
 	<dependencies>

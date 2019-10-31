@@ -1,6 +1,17 @@
 .search-form {
-  width:95vw;
-  margin:10vh auto;
+  padding: 1vw;
+}
+
+.giph-container {
+  margin-left: 3.5vw;
+}
+
+.input-group {
+  width: 99%
+}
+
+.search-form {
   display: flex;
   flex-direction: column;
 }
+

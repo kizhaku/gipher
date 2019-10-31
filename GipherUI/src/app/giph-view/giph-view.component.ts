@@ -51,4 +51,12 @@ export class GiphViewComponent implements OnInit {
     );
   }
 
+  hideError() {
+    this.errorDisplay = "none";
+  }
+
+  hideMessage() {
+    this.messageDisplay = "none";
+  }
+
 }

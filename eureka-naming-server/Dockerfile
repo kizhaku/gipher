@@ -1,5 +1,5 @@
 FROM java:8
 WORKDIR /usr/src
-ADD /target/netflix-eureka-naming-server-0.0.1-SNAPSHOT.jar /usr/src/netflix-eureka-naming-server-0.0.1-SNAPSHOT.jar
-EXPOSE 8761
-ENTRYPOINT ["java" ,"-jar","netflix-eureka-naming-server-0.0.1-SNAPSHOT.jar"]
+ADD /target/eureka-naming-server-1.0.jar /usr/src/eureka-naming-server-1.0.jar
+EXPOSE 8761:8761
+ENTRYPOINT ["java" ,"-jar","eureka-naming-server-1.0.jar"]

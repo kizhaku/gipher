@@ -1,3 +1,28 @@
 .giph-container {
-  /*margin-left: 3.5vw; */
+  margin: 0;
 }
+
+@media(max-width: 768px) {
+  .row-giphs {
+    padding-left: 3.5vw;
+  }
+}
+
+@media(max-width: 425px) {
+  .row-giphs {
+    padding-left: 20vw;
+  }
+}
+
+@media(max-width: 320px) {
+  .row-giphs {
+    padding-left: 7vw;
+  }
+}
+
+@media(max-width: 375px) {
+  .row-giphs {
+    padding-left: 18vw;
+  }
+}
+

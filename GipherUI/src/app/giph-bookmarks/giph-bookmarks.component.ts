@@ -62,4 +62,8 @@ export class GiphBookmarksComponent implements OnInit {
     );
   }
 
+  hideError() {
+    this.errorDisplay = "none";
+  }
+
 }

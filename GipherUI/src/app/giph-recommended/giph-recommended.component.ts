@@ -61,4 +61,8 @@ export class GiphRecommendedComponent implements OnInit {
     );
   }
 
+  hideError() {
+    this.errorDisplay = "none";
+  }
+
 }
