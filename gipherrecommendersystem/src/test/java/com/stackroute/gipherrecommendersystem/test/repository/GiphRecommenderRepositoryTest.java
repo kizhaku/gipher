@@ -8,6 +8,7 @@ import java.util.Optional;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,6 +50,7 @@ public class GiphRecommenderRepositoryTest {
 		giphRecommenderRepository.deleteAll();
 	}
 	
+	@Ignore
 	@Test
 	public void testCreateRecommendedGiph() {
 		giphRecommenderRepository.insert(giph);
@@ -57,6 +59,7 @@ public class GiphRecommenderRepositoryTest {
 		Assert.assertEquals(giph.getGifId(), savedGiph.getGifId());
 	}
 	
+	@Ignore
 	@Test(expected = NoSuchElementException.class)
 	public void testDeleteRecommendedGiph() {
 		giphRecommenderRepository.insert(giph);
@@ -67,6 +70,7 @@ public class GiphRecommenderRepositoryTest {
 		giphRecommenderRepository.findById(giph.getGifId()).get();
 	}
 	
+	@Ignore
 	@Test
 	public void testFindTop20ByOrderByCountDesc() {
 		giphRecommenderRepository.insert(giph);
