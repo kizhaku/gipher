@@ -102,4 +102,9 @@ public class UserAuthenticationController {
 
 	}
 	
+	/* @RequestMapping("/api/v1/login")
+	public ResponseEntity<?> corsPreFlight() {
+		return new ResponseEntity<>(HttpStatus.OK);
+	} */
+	
 }
