@@ -20,7 +20,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 public class SwaggerConfig {
 	
 	private final ApiInfo apiInfo = new ApiInfoBuilder()
-			.title("Account manager")
+			.title("Gipher recommender syatem")
 			.description("Service for giph recommendation.")
 			.version("1.0")
 			.license("Apache 2.0")
