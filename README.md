@@ -85,3 +85,45 @@ Build a system to manage and recommend GIFs to a user. Refer https://giphy.com/
 - Create Eureka server and make other services as client
 
 - Demonstrate the entire application
+
+Docker container commands
+--------------------------
+- Create images
+	1. Gipher UI:
+		Navigate to gipher/GipherUI directory. 
+		run docker build -t akizhaku/gipherui:v1 .
+		
+	2. Account manager:
+		Navigate to gipher/accountmanager.
+		run docker build -t akizhaku/gipher-accountmanager:v1 .
+		
+	3. Gipher manager:
+		Navigate to gipher/giphermanager
+		run docker build -t akizhaku/gipher-manager:v1 .
+		
+	4. Gipher recommender:
+		Navigate to gipher/gipherrecommendersystem
+		run docker build -t akizhaku/gipher-recommender:v1 .
+		
+	5. Eureka:
+		Navigate to gipher/eureka-naming-server
+		run docker build -t akizhaku/gipher-eureka:v1 .
+		
+	6. Zuul:
+		Navigate to gipher/zuul-api-gateway-server
+		run docker build -t akizhaku/gipher-zuulapi:v1 .
+		
+- View images
+	run docker images
+	
+- Push to repository
+	run docker push akizhaku/gipherui:v1
+	run docker push akizhaku/gipher-accountmanager:v1
+	run docker push akizhaku/gipher-manager:v1
+	run docker push akizhaku/gipher-recommender:v1
+	run docker push akizhaku/gipher-eureka:v1
+	run docker push akizhaku/gipher-zuulapi:v1
+	
+- Compose
+	Navigate to root directory /gipher.
+	run docker-compose up			
