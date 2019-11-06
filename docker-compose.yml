@@ -8,7 +8,8 @@
         -  3306:3306
       environment:
         MYSQL_ROOT_PASSWORD:  Kit@mysql4
-        MYSQL_DATABASE: accountmanager  
+        MYSQL_DATABASE: accountmanager
+        MYSQL_USER:  root
       healthcheck:
         test:  "exit 0"
         
@@ -29,18 +30,22 @@
         test:  "exit 0"
         
     accountmanager:
-      image:  akizhaku/manager-gipher
+      image:  akizhaku/gipher-accountmanager
       restart:  always
       depends_on:
         -  mysql
         -  eurekaserver
+      environment:
+        MYSQL_ROOT_PASSWORD:  Kit@mysql4
+        MYSQL_DATABASE: accountmanager
+        MYSQL_USER:  root  
       ports:
         -  8089:8089
       healthcheck:
         test:  "exit 0"
         
     gipherrecommendersystem:
-      image:  akizhaku/recommender-gipher
+      image:  akizhaku/gipher-recommender
       restart:  always
       depends_on:
         -  mongo
@@ -52,7 +57,7 @@
         test:  "exit 0"
         
     giphermanager:
-      image:  akizhaku/manager-gipher
+      image:  akizhaku/gipher-manager
       restart:  always
       depends_on:
         -  mongo
@@ -64,7 +69,7 @@
         test:  "exit 0"
         
     zuulapigateway:
-      image:  akizhaku/zuul-api-gipher
+      image:  akizhaku/gipher-zuulapi
       restart:  always
       depends_on:
         - eurekaserver
@@ -74,11 +79,15 @@
         test:  "exit 0"
         
     eurekaserver:
-      image:  akizhaku/eureka-gipher
+      image:  akizhaku/gipher-eureka
       restart:  always
       ports:
         -  8761:8761
       healthcheck:
         test:  "exit 0"
-                  
-                  
+    
+    gipherui:
+      image:  akizhaku/gipherui:v1
+      ports:
+        -  4200:80/tcp
+        

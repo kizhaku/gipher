@@ -1,10 +1,8 @@
-FROM node:12.2.0
-WORKDIR /app
+FROM node:10-alpine as builder
+COPY . ./GipherUI
+WORKDIR /GipherUI
+RUN npm i
+RUN $(npm bin)/ng build --prod
 
-ENV PATH /app/node_modules/.bin:$PATH
-COPY package.json /app/package.json
-RUN npm install
-
-COPY . /app
-
-CMD ng serve --host 0.0.0.0
+FROM nginx:1.14.1-alpine
+COPY --from=builder /GipherUI/dist/GipherUI/ /usr/share/nginx/html
