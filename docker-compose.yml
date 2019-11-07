@@ -30,7 +30,7 @@
         test:  "exit 0"
         
     accountmanager:
-      image:  akizhaku/gipher-accountmanager
+      image:  akizhaku/gipher-accountmanager:v1
       restart:  always
       depends_on:
         -  mysql
@@ -45,7 +45,7 @@
         test:  "exit 0"
         
     gipherrecommendersystem:
-      image:  akizhaku/gipher-recommender
+      image:  akizhaku/gipher-recommender:v1
       restart:  always
       depends_on:
         -  mongo
@@ -57,7 +57,7 @@
         test:  "exit 0"
         
     giphermanager:
-      image:  akizhaku/gipher-manager
+      image:  akizhaku/gipher-manager:v1
       restart:  always
       depends_on:
         -  mongo
@@ -69,7 +69,7 @@
         test:  "exit 0"
         
     zuulapigateway:
-      image:  akizhaku/gipher-zuulapi
+      image:  akizhaku/gipher-zuulapi:v1
       restart:  always
       depends_on:
         - eurekaserver
@@ -79,7 +79,7 @@
         test:  "exit 0"
         
     eurekaserver:
-      image:  akizhaku/gipher-eureka
+      image:  akizhaku/gipher-eureka:v1
       restart:  always
       ports:
         -  8761:8761
