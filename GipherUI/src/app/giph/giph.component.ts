@@ -4,6 +4,7 @@ import { MatIconRegistry } from '@angular/material';
 import { DomSanitizer } from '@angular/platform-browser';
 import { GiphService } from '../services/giph.service';
 import { AuthenticationService } from '../services/authentication.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-giph',
@@ -24,8 +25,8 @@ export class GiphComponent{
 
   constructor(private matIconRegistry: MatIconRegistry, 
     private domSanitizer: DomSanitizer) {
-    this.matIconRegistry.addSvgIcon('bookmark', this.domSanitizer.bypassSecurityTrustResourceUrl('../gipher/assets/baseline-bookmark-24px.svg'));
-    this.matIconRegistry.addSvgIcon('delete', this.domSanitizer.bypassSecurityTrustResourceUrl('../gipher/assets/baseline-delete-24px.svg'));
+    this.matIconRegistry.addSvgIcon('bookmark', this.domSanitizer.bypassSecurityTrustResourceUrl(environment.bookmarkImage));
+    this.matIconRegistry.addSvgIcon('delete', this.domSanitizer.bypassSecurityTrustResourceUrl(environment.deleteImage));
   }
 
   bookmarkGif(gifId: String) {

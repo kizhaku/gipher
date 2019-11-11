@@ -18,9 +18,9 @@ public class GipherManagerApplication {
     public WebMvcConfigurer corsConfigurer() {
 		return new WebMvcConfigurer() {
 			public void addCorsMappings(CorsRegistry registry) {
-				registry.addMapping("*")
+				registry.addMapping("/giphermanager/**")
 				.allowedOrigins("*")
-				.allowedMethods("*")
+				.allowedMethods("GET", "POST", "DELETE" ,"OPTIONS")
 				.allowedHeaders("*");
 			}
 		};

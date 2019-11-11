@@ -13,7 +13,9 @@ export const environment = {
   giphyApiKey: "DVa67iQKqrw6hJFfW7VslcCCQ6dSAn3q",
   giphyTrendingURL: "http://api.giphy.com/v1/gifs/trending?limit=20&rating=PG&lang=en",
   giphySearchURL: "http://api.giphy.com/v1/gifs/search?limit=20&rating=PG&lang=en",
-  giphyFetchURL: "http://api.giphy.com/v1/gifs?limit=20&rating=PG&lang=en"
+  giphyFetchURL: "http://api.giphy.com/v1/gifs?limit=20&rating=PG&lang=en",
+  bookmarkImage: "../assets/baseline-bookmark-24px.svg",
+  deleteImage: "../assets/baseline-delete-24px.svg"
 };
 
 /*

@@ -15,6 +15,18 @@ import com.stackroute.gipherrecommendersystem.jwtfilter.JwtFilter;
 public class GipherRecommenderSystemApplication {
 	
 	@Bean
+    public WebMvcConfigurer corsConfigurer() {
+		return new WebMvcConfigurer() {
+			public void addCorsMappings(CorsRegistry registry) {
+				registry.addMapping("/gipherrecommender/**")
+				.allowedOrigins("*")
+				.allowedMethods("GET", "POST", "DELETE" ,"OPTIONS")
+				.allowedHeaders("*");
+			}
+		};
+    }
+	
+	@Bean
 	public FilterRegistrationBean jwtFilter() {
 		FilterRegistrationBean registrationBean = new FilterRegistrationBean<>();
 		registrationBean.setFilter(new JwtFilter());
@@ -22,18 +34,6 @@ public class GipherRecommenderSystemApplication {
 	       
 	    return registrationBean;
 	}
-	
-	@Bean
-    public WebMvcConfigurer corsConfigurer() {
-		return new WebMvcConfigurer() {
-			public void addCorsMappings(CorsRegistry registry) {
-				registry.addMapping("/gipherrecommender/api/v1/**")
-				.allowedOrigins("*")
-				.allowedMethods("*")
-				.allowedHeaders("*");
-			}
-		};
-    }
 
 	public static void main(String[] args) {
 		SpringApplication.run(GipherRecommenderSystemApplication.class, args);

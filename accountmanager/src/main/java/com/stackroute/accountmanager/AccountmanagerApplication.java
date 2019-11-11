@@ -19,9 +19,9 @@ public class AccountmanagerApplication {
     public WebMvcConfigurer corsConfigurer() {
 		return new WebMvcConfigurer() {
 			public void addCorsMappings(CorsRegistry registry) {
-				registry.addMapping("*")
+				registry.addMapping("/auth/**")
 				.allowedOrigins("*")
-				.allowedMethods("*")
+				.allowedMethods("GET", "POST", "OPTIONS")
 				.allowedHeaders("*");
 			}
 		};

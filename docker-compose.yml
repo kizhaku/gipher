@@ -30,7 +30,7 @@
         test:  "exit 0"
         
     accountmanager:
-      image:  akizhaku/gipher-accountmanager:v1
+      image:  akizhaku/gipher-accountmanager:v2
       restart:  always
       depends_on:
         -  mysql
@@ -45,7 +45,7 @@
         test:  "exit 0"
         
     gipherrecommendersystem:
-      image:  akizhaku/gipher-recommender:v1
+      image:  akizhaku/gipher-recommender:v2
       restart:  always
       depends_on:
         -  mongo
@@ -57,7 +57,7 @@
         test:  "exit 0"
         
     giphermanager:
-      image:  akizhaku/gipher-manager:v1
+      image:  akizhaku/gipher-manager:v2
       restart:  always
       depends_on:
         -  mongo
@@ -87,7 +87,7 @@
         test:  "exit 0"
     
     gipherui:
-      image:  akizhaku/gipherui:v1
+      image:  akizhaku/gipherui:v2
       ports:
         -  4200:80/tcp
         
