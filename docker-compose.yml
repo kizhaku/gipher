@@ -104,7 +104,9 @@
           ipv4_address:  172.18.0.24
       depends_on:
         -  eurekaserver
-        -  accountmanager 
+        -  accountmanager
+        -  gipherrecommendersystem
+        -  giphermanager
       ports:
         -  8765:8765
       healthcheck:
@@ -116,5 +118,3 @@
         -  4200:80/tcp
         
                        
-            
-        
