@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.stackroute.gipherrecommendersystem.model.Giph;
@@ -15,7 +16,7 @@ import com.stackroute.gipherrecommendersystem.service.GiphRecommenderService;
 
 @RestController
 @RequestMapping("/gipherrecommender")
-@CrossOrigin(origins="*", allowedHeaders="*")
+@CrossOrigin(origins="*", allowedHeaders="*", methods= {RequestMethod.GET, RequestMethod.POST, RequestMethod.OPTIONS})
 public class GiphRecommenderController {
 	
 	private GiphRecommenderService giphRecommenderService;

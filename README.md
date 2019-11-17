@@ -88,42 +88,48 @@ Build a system to manage and recommend GIFs to a user. Refer https://giphy.com/
 
 Docker container commands
 --------------------------
+- How to run
+	1. Create network:
+		Run docker network create --subnet=172.18.0.0/16 giphernet
+		
+	2. Compose
+		Navigate to root directory /gipher.
+		Run docker-compose up		
+
+
 - Create images
 	1. Gipher UI:
 		Navigate to gipher/GipherUI directory. 
-		run docker build -t akizhaku/gipherui:v1 .
+		Run docker build -t akizhaku/gipherui:v3 .
 		
 	2. Account manager:
 		Navigate to gipher/accountmanager.
-		run docker build -t akizhaku/gipher-accountmanager:v1 .
+		Run docker build -t akizhaku/gipher-accountmanager:v3 .
 		
 	3. Gipher manager:
 		Navigate to gipher/giphermanager
-		run docker build -t akizhaku/gipher-manager:v1 .
+		Run docker build -t akizhaku/gipher-manager:v3 .
 		
 	4. Gipher recommender:
 		Navigate to gipher/gipherrecommendersystem
-		run docker build -t akizhaku/gipher-recommender:v1 .
+		Run docker build -t akizhaku/gipher-recommender:v3 .
 		
 	5. Eureka:
 		Navigate to gipher/eureka-naming-server
-		run docker build -t akizhaku/gipher-eureka:v1 .
+		Run docker build -t akizhaku/gipher-eureka:v2 .
 		
 	6. Zuul:
 		Navigate to gipher/zuul-api-gateway-server
-		run docker build -t akizhaku/gipher-zuulapi:v1 .
+		Run docker build -t akizhaku/gipher-zuulapi:v2 .
 		
 - View images
-	run docker images
+	Run docker images
 	
 - Push to repository
-	run docker push akizhaku/gipherui:v1
-	run docker push akizhaku/gipher-accountmanager:v1
-	run docker push akizhaku/gipher-manager:v1
-	run docker push akizhaku/gipher-recommender:v1
-	run docker push akizhaku/gipher-eureka:v1
-	run docker push akizhaku/gipher-zuulapi:v1
-	
-- Compose
-	Navigate to root directory /gipher.
-	run docker-compose up			
+	Run docker push akizhaku/gipherui:v3
+	Run docker push akizhaku/gipher-accountmanager:v3
+	Run docker push akizhaku/gipher-manager:v3
+	Run docker push akizhaku/gipher-recommender:v3
+	Run docker push akizhaku/gipher-eureka:v2
+	Run docker push akizhaku/gipher-zuulapi:v2
+			

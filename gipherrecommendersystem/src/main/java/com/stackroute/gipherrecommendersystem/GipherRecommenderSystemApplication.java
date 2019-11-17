@@ -20,7 +20,7 @@ public class GipherRecommenderSystemApplication {
 			public void addCorsMappings(CorsRegistry registry) {
 				registry.addMapping("/gipherrecommender/**")
 				.allowedOrigins("*")
-				.allowedMethods("GET", "POST", "DELETE" ,"OPTIONS")
+				.allowedMethods("GET", "POST" ,"OPTIONS")
 				.allowedHeaders("*");
 			}
 		};

@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.stackroute.accountmanager.exception.UserAlreadyExistsException;
@@ -20,7 +21,7 @@ import com.stackroute.accountmanager.service.UserService;
 
 @RestController
 @RequestMapping("/auth")
-@CrossOrigin(origins="*", allowedHeaders="*")
+@CrossOrigin(origins="*", allowedHeaders="*", methods= {RequestMethod.GET, RequestMethod.POST, RequestMethod.OPTIONS})
 public class UserController {
 	
 	UserService userService;

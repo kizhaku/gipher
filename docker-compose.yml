@@ -1,52 +1,77 @@
   version:  '3'
+  networks:
+    giphernet:
+      external: true
   services:
-  
   
     mysql:
       image:  mysql:5.7
+      restart:  always
+      networks:
+        giphernet:
+          ipv4_address:  172.18.0.22
       ports:
         -  3306:3306
       environment:
         MYSQL_ROOT_PASSWORD:  Kit@mysql4
         MYSQL_DATABASE: accountmanager
-        MYSQL_USER:  root
       healthcheck:
         test:  "exit 0"
         
     mongo:
       image: mongo:3.4.20-xenial
+      restart:  always
+      networks:
+        giphernet:
+          ipv4_address:  172.18.0.27
       ports:
-        -  27017:27017
-      container_name:  mongo  
+        -  27017:27017  
       healthcheck:
         test:  "exit 0"
         
     rabbitmq:
       image:  rabbitmq:management
+      restart:  always
+      networks:
+        giphernet:
+          ipv4_address:  172.18.0.26
       ports:
         -  15672:15672 
         -  5672:5672
       healthcheck:
         test:  "exit 0"
+                
+    eurekaserver:
+      image:  akizhaku/gipher-eureka:v2
+      restart:  always
+      networks:
+        giphernet:
+          ipv4_address:  172.18.0.23   
+      ports:
+        -  8761:8761
+      healthcheck:
+        test:  "exit 0"
         
     accountmanager:
-      image:  akizhaku/gipher-accountmanager:v2
+      image:  akizhaku/gipher-accountmanager:v3
       restart:  always
+      networks:
+        giphernet:
+          ipv4_address:  172.18.0.25
       depends_on:
         -  mysql
         -  eurekaserver
-      environment:
-        MYSQL_ROOT_PASSWORD:  Kit@mysql4
-        MYSQL_DATABASE: accountmanager
-        MYSQL_USER:  root  
       ports:
         -  8089:8089
       healthcheck:
         test:  "exit 0"
         
     gipherrecommendersystem:
-      image:  akizhaku/gipher-recommender:v2
+      image:  akizhaku/gipher-recommender:v3
       restart:  always
+      networks:
+        giphernet:
+          ipv4_address:  172.18.0.29
       depends_on:
         -  mongo
         -  eurekaserver
@@ -57,8 +82,11 @@
         test:  "exit 0"
         
     giphermanager:
-      image:  akizhaku/gipher-manager:v2
+      image:  akizhaku/gipher-manager:v3
       restart:  always
+      networks:
+        giphernet:
+          ipv4_address:  172.18.0.28
       depends_on:
         -  mongo
         -  eurekaserver
@@ -66,28 +94,27 @@
       ports:
         -  9100:9100
       healthcheck:
-        test:  "exit 0"
+        test:  "exit 0"        
         
     zuulapigateway:
-      image:  akizhaku/gipher-zuulapi:v1
+      image:  akizhaku/gipher-zuulapi:v2
       restart:  always
+      networks:
+        giphernet:
+          ipv4_address:  172.18.0.24
       depends_on:
-        - eurekaserver
+        -  eurekaserver
+        -  accountmanager 
       ports:
         -  8765:8765
       healthcheck:
         test:  "exit 0"
         
-    eurekaserver:
-      image:  akizhaku/gipher-eureka:v1
-      restart:  always
-      ports:
-        -  8761:8761
-      healthcheck:
-        test:  "exit 0"
-    
     gipherui:
-      image:  akizhaku/gipherui:v2
+      image:  akizhaku/gipherui:v3
       ports:
         -  4200:80/tcp
+        
+                       
+            
         

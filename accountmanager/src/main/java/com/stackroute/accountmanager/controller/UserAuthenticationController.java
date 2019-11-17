@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.stackroute.accountmanager.exception.UserNotFoundException;
@@ -28,7 +29,7 @@ import io.jsonwebtoken.SignatureAlgorithm;
 
 @RestController
 @RequestMapping("/auth")
-@CrossOrigin(origins="*", allowedHeaders="*")
+@CrossOrigin(origins="*", allowedHeaders="*", methods= {RequestMethod.GET, RequestMethod.POST, RequestMethod.OPTIONS})
 public class UserAuthenticationController {
 	
 	static final long EXPIRATION_TIME = 300000;

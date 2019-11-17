@@ -60,6 +60,7 @@ export class RegisterComponent {
     routeToHome(formVal) {
       this.authService.authenticateUser(formVal).subscribe(res => {
         this.authService.setBearerToken(res['token']);
+        this.authService.setUserName(formVal.value.userId);
         this.router.routeToHome();
       },
       error => {
