@@ -4,6 +4,8 @@ import { Giph } from '../models/giph';
 import { ActivatedRoute } from '@angular/router';
 import { AuthenticationService } from '../services/authentication.service';
 import { GiphBookmark } from '../models/giphBookmark';
+import { GiphRecommended } from '../models/giphRecommended';
+import { element } from '@angular/core/src/render3';
 
 @Component({
   selector: 'app-giph-recommended',
@@ -22,21 +24,35 @@ export class GiphRecommendedComponent implements OnInit {
   message: String;
   messageDisplay: String;
   errorDisplay: String;
+  recommendedGifs: Array<GiphRecommended>
+  showCount: Boolean;
+  recommendationCount: number
+  recommendedGiph: GiphRecommended;
+  
 
   constructor(private giphService: GiphService, private activatedRoute: ActivatedRoute, authService: AuthenticationService) {
     this.giph = new Giph();
     this.giphs = [];
     this.showBookmark = true;
+    this.showCount = true;
     this.userName = authService.getUserName();
     this.giphService.fetchRecommendedGiphs().subscribe(data => {
-      this.gifIds = data.map(item => {
-        return item.gifId;
-      })
+      this.recommendedGifs = data;
+      this.gifIds = this.recommendedGifs.map(item => item.gifId);
 
       if(this.gifIds.length) {
         this.giphService.fetchGiphsById(this.gifIds.join()).subscribe(res => {
           this.giphs = res['data'];
+
+          this.giphs.forEach((item, index) => {
+            this.recommendedGiph = this.recommendedGifs.find(element => element.gifId == item.id);
+            this.giphs[index] = Object.assign(item, this.recommendedGiph);
+          })
         });
+      }
+      else {
+        this.errorDisplay = "block";
+        this.errorMessage = "No recommendations found.";
       }
     });
   }

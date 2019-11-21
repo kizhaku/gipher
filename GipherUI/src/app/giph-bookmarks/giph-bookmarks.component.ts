@@ -35,6 +35,10 @@ export class GiphBookmarksComponent implements OnInit {
           this.giphs = res['data'];
         });
       }
+      else {
+        this.errorDisplay = "block";
+        this.errorMessage = "No bookmark found.";
+      }
     });
   }
 

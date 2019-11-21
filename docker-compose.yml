@@ -113,7 +113,7 @@
         test:  "exit 0"
         
     gipherui:
-      image:  akizhaku/gipherui:v3
+      image:  akizhaku/gipherui:v2
       ports:
         -  4200:80/tcp
         

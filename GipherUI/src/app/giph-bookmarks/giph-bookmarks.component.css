@@ -1,27 +1,9 @@
-.giph-container {
+.bookmarks_body {
+  width: 95vw;
+  padding-top: 5vh;
+}
+
+.row {
   margin: 0;
-}
-
-@media(max-width: 768px) {
-  .row-giphs {
-    padding-left: 3.5vw;
-  }
-}
-
-@media(max-width: 425px) {
-  .row-giphs {
-    padding-left: 20vw;
-  }
-}
-
-@media(max-width: 320px) {
-  .row-giphs {
-    padding-left: 7vw;
-  }
-}
-
-@media(max-width: 375px) {
-  .row-giphs {
-    padding-left: 18vw;
-  }
+  margin-left: 1.5vw;
 }

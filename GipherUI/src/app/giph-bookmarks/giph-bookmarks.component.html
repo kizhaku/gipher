@@ -1,4 +1,4 @@
-<div class="container-fluid giph-container">
+<!-- <div class="container-fluid giph-container">
 	<div class="alert alert-danger fade show" [ngStyle]="{display: errorDisplay}" role="alert">
 			{{errorMessage}}
 			<button type="button" class="close" aria-label="Close" (click)="hideError()">
@@ -10,4 +10,20 @@
 			[showBookmark]="showBookmark" 
 			[giph]="giph" *ngFor="let giph of giphs"></app-giph>
 	</div>
+</div> -->
+
+<div class="bookmarks_body container-fluid">
+	<div class="container-fluid giph-container">
+			<div class="alert alert-danger fade show" [ngStyle]="{display: errorDisplay}" role="alert">
+					{{errorMessage}}
+					<button type="button" class="close" aria-label="Close" (click)="hideError()">
+							<span aria-hidden="true">&times;</span>
+					</button>
+			</div>
+	</div>
+</div>
+
+<div class="row">
+		<app-giph (delBookmark)="deleteBookmark($event)" [showBookmark]="showBookmark" [giph]="giph" *ngFor="let giph of giphs">
+		</app-giph>
 </div>

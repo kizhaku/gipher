@@ -20,8 +20,7 @@
 -->
 
 <div class="giphCards col-lg-4 col-md-4 col-sm-12">
-  <div class="card text-white text-right">
-      
+  <div class="card text-white text-right">      
       <img src="{{giph.images.fixed_width_downsampled.url}}" class="card-img" alt="...">
       <div class="card-img-overlay">
         <!-- <h5 class="card-title">{{giph.title}}</h5> -->
@@ -30,6 +29,11 @@
         </span>
         <span *ngIf="showBookmark == false" (click)="deleteBookmark(giph.id)">
             <mat-icon class="bookmarkIcon" aria-hidden="true" svgIcon="delete" aria-label="Delete"></mat-icon>
+        </span>
+        <span *ngIf="showCount" class="recommend-count">
+            <mat-icon aria-hidden="true">
+              <span>{{giph.count}}</span>
+            </mat-icon>
         </span>
       </div>
   </div>

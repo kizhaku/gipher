@@ -17,6 +17,8 @@ export class GiphComponent{
   giph: Giph;
   @Input()
   showBookmark: boolean;
+  @Input()
+  showCount: boolean;
 
   @Output()
   delBookmark = new EventEmitter<String>();

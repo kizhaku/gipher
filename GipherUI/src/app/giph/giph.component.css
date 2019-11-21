@@ -1,6 +1,7 @@
 .giphCards {
   margin: 0;
   display: flex;
+  padding-bottom: 5vh;
 }
 
 .example-card {
@@ -27,4 +28,40 @@ mat-card.-header{
 .card img {
   width: 200px;
   height: 200px;
+}
+
+.recommend-count {
+  background:white;
+  border-radius:50%;
+  height: 26px;
+  width: 26px;
+  line-height: 26px;
+  display: inline-block;
+  text-align: center;
+  margin-right: 6px;
+  color: black;
+}
+
+@media(max-width: 320px) {
+  .giphCards {
+    left: 25%;
+  }
+}
+
+@media(max-width: 375px) {
+  .giphCards {
+    left: 32%;
+  }
+}
+
+@media(max-width: 425px) {
+  .giphCards {
+    left: 42%;
+  }
+}
+
+@media(max-width: 768px) {
+  .giphCards {
+    left: 15%;
+  }
 }

@@ -9,6 +9,7 @@ import { RouterService } from '../services/router.service';
 })
 export class HeaderComponent implements AfterContentChecked {
   isLoggedIn: Boolean = false;
+  userName: String;
 
   constructor(private authService: AuthenticationService, private routerService: RouterService) {
 
@@ -18,6 +19,7 @@ export class HeaderComponent implements AfterContentChecked {
     let bearerToken: String = this.authService.getBearerToken();
     if(bearerToken != null) {
       this.isLoggedIn = true;
+      this.userName = this.authService.getUserName();
     }
   }
 

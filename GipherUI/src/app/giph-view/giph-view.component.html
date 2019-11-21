@@ -11,9 +11,9 @@
 						<span aria-hidden="true">&times;</span>
 				</button>
 		</div>
-	<div class="row row-giphs">
-			<app-giph [showBookmark]="showBookmark" 
-			(addBookmark)="bookmarkGif($event)"
-			[giph]="giph" *ngFor="let giph of giphs"></app-giph>
-	</div>
+</div>
+
+<div class="row">
+		<app-giph [showBookmark]="showBookmark" (addBookmark)="bookmarkGif($event)" [giph]="giph" *ngFor="let giph of giphs">
+		</app-giph>
 </div>
