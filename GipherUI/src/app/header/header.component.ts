@@ -28,4 +28,5 @@ export class HeaderComponent implements AfterContentChecked {
     this.authService.logout();
     this.routerService.routeToLogin();
   }
+  
 }

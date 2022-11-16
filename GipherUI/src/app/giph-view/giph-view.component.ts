@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { GiphService } from '../services/giph.service';
 import { Giph } from '../models/giph';
 import { AuthenticationService } from '../services/authentication.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-giph-view',
