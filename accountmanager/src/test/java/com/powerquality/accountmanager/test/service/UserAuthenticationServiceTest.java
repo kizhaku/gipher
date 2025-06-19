@@ -1,4 +1,4 @@
-package com.powerquality.accountmanager.test.service;
+package com.gipher.accountmanager.test.service;
 
 public class UserAuthenticationServiceTest {
 	

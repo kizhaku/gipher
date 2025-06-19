@@ -1,4 +1,4 @@
-package com.powerquality.accountmanager.exception;
+package com.gipher.accountmanager.exception;
 
 public class UserNotFoundException extends Exception {
 

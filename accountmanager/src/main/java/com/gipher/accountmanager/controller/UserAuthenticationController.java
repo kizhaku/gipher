@@ -1,4 +1,4 @@
-package com.powerquality.accountmanager.controller;
+package com.gipher.accountmanager.controller;
 
 import java.util.Date;
 import java.util.HashMap;
@@ -20,8 +20,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.powerquality.accountmanager.model.User;
-import com.powerquality.accountmanager.service.UserAuthenticationService;
+import com.gipher.accountmanager.model.User;
+import com.gipher.accountmanager.service.UserAuthenticationService;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;

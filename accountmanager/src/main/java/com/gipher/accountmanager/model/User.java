@@ -1,4 +1,4 @@
-package com.powerquality.accountmanager.model;
+package com.gipher.accountmanager.model;
 
 import java.util.Date;
 

@@ -1,4 +1,4 @@
-package com.powerquality.accountmanager.config;
+package com.gipher.accountmanager.config;
 
 import java.util.Arrays;
 import java.util.HashSet;

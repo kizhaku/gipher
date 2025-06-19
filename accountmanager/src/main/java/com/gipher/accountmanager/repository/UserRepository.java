@@ -1,6 +1,6 @@
-package com.powerquality.accountmanager.repository;
+package com.gipher.accountmanager.repository;
 
-import com.powerquality.accountmanager.model.User;
+import com.gipher.accountmanager.model.User;
 
 //@Repository
 public interface UserRepository //extends JpaRepository<User, String> 

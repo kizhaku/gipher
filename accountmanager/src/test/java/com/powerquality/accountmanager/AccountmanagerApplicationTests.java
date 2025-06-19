@@ -1,4 +1,4 @@
-package com.powerquality.accountmanager;
+package com.gipher.accountmanager;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

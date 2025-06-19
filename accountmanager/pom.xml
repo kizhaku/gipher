@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	
-	<groupId>com.powerquality</groupId>
+	<groupId>com.gipher</groupId>
 	<artifactId>accountmanager</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<description>Account manager</description>

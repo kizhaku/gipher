@@ -1,4 +1,4 @@
-package com.powerquality.accountmanager.test.controller;
+package com.gipher.accountmanager.test.controller;
 
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;

@@ -62,4 +62,5 @@ export class GiphSearchComponent implements OnInit {
   hideMessage() {
     this.messageDisplay = "none";
   }
+
 }

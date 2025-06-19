@@ -1,11 +1,11 @@
-package com.powerquality.accountmanager.service;
+package com.gipher.accountmanager.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.powerquality.accountmanager.exception.UserNotFoundException;
-import com.powerquality.accountmanager.model.User;
-import com.powerquality.accountmanager.repository.UserRepository;
+import com.gipher.accountmanager.exception.UserNotFoundException;
+import com.gipher.accountmanager.model.User;
+import com.gipher.accountmanager.repository.UserRepository;
 
 
 @Service
