@@ -6,7 +6,7 @@ export const environment = {
   apiRegisterUser: "/accountmanager/auth/api/v1/user/",
   apiBookmark: "giphermanager/giphermanager/api/v1/bookmark/",
   apiRecommended: "gipherrecommendersystem/gipherrecommender/api/v1/giphs",
-  giphyApiKey: "DVa67iQKqrw6hJFfW7VslcCCQ6dSAn3q",
+  giphyApiKey: '${GIPHY_API_URL}',
   giphyTrendingURL: "http://api.giphy.com/v1/gifs/trending?limit=20&rating=PG&lang=en",
   giphySearchURL: "http://api.giphy.com/v1/gifs/search?limit=20&rating=PG&lang=en",
   giphyFetchURL: "http://api.giphy.com/v1/gifs?limit=20&rating=PG&lang=en",
